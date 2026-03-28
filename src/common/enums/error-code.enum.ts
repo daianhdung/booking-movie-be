@@ -1,0 +1,25 @@
+export enum ErrorCode {
+  VALIDATION_BOOKING_4000 = 'VALIDATION_BOOKING_4000',
+  UNAUTHORIZED_BOOKING_4010 = 'UNAUTHORIZED_BOOKING_4010',
+  FORBIDDEN_BOOKING_4030 = 'FORBIDDEN_BOOKING_4030',
+  RESOURCE_NOT_FOUND_BOOKING_4040 = 'RESOURCE_NOT_FOUND_BOOKING_4040',
+  CONFLICT_BOOKING_4090 = 'CONFLICT_BOOKING_4090',
+  INTERNAL_BOOKING_5000 = 'INTERNAL_BOOKING_5000',
+}
+
+export function mapHttpStatusToErrorCode(statusCode: number): ErrorCode {
+  switch (statusCode) {
+    case 400:
+      return ErrorCode.VALIDATION_BOOKING_4000;
+    case 401:
+      return ErrorCode.UNAUTHORIZED_BOOKING_4010;
+    case 403:
+      return ErrorCode.FORBIDDEN_BOOKING_4030;
+    case 404:
+      return ErrorCode.RESOURCE_NOT_FOUND_BOOKING_4040;
+    case 409:
+      return ErrorCode.CONFLICT_BOOKING_4090;
+    default:
+      return ErrorCode.INTERNAL_BOOKING_5000;
+  }
+}
